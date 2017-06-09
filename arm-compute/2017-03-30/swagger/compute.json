@@ -3232,19 +3232,22 @@
       "description": "The instance view of a resource."
     },
     "AvailabilitySet": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/AvailabilitySetProperties"
-        },
-        "sku": {
-          "$ref": "#/definitions/Sku",
-          "description": "Sku of the availability set"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/AvailabilitySetProperties"
+            },
+            "sku": {
+              "$ref": "#/definitions/Sku",
+              "description": "Sku of the availability set"
+            }
+          }
         }
       ],
       "description": "Create or update availability set parameters."
@@ -3338,48 +3341,54 @@
       "description": "Describes the properties of a Virtual Machine Extension Image."
     },
     "VirtualMachineExtensionImage": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineExtensionImageProperties"
-        }
-      },
-      "required": [
-        "name",
-        "location"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineExtensionImageProperties"
+            }
+          },
+          "required": [
+            "name",
+            "location"
+          ]
         }
       ],
       "description": "Describes a Virtual Machine Extension Image."
     },
     "VirtualMachineImageResource": {
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "The name of the resource."
-        },
-        "location": {
-          "type": "string",
-          "description": "The supported Azure location of the resource."
-        },
-        "tags": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "string"
-          },
-          "description": "The tags attached to the resource."
-        }
-      },
-      "required": [
-        "name",
-        "location"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/SubResource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the resource."
+            },
+            "location": {
+              "type": "string",
+              "description": "The supported Azure location of the resource."
+            },
+            "tags": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              },
+              "description": "The tags attached to the resource."
+            }
+          },
+          "required": [
+            "name",
+            "location"
+          ]
         }
       ],
       "description": "Virtual machine image resource information."
@@ -3458,15 +3467,18 @@
       "description": "Describes the properties of a Virtual Machine Extension."
     },
     "VirtualMachineExtension": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineExtensionProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineExtensionProperties"
+            }
+          }
         }
       ],
       "description": "Describes a Virtual Machine Extension."
@@ -3542,19 +3554,22 @@
       "description": "Describes the properties of a Virtual Machine Image."
     },
     "VirtualMachineImage": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineImageProperties"
-        }
-      },
-      "required": [
-        "name",
-        "location"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/VirtualMachineImageResource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineImageProperties"
+            }
+          },
+          "required": [
+            "name",
+            "location"
+          ]
         }
       ],
       "description": "Describes a Virtual Machine Image."
@@ -3659,15 +3674,18 @@
       "description": "Compute-specific operation properties, including output"
     },
     "VirtualMachineCaptureResult": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineCaptureResultProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/SubResource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineCaptureResultProperties"
+            }
+          }
         }
       ],
       "description": "Resource Id."
@@ -3806,27 +3824,30 @@
       "description": "Describes a hardware profile."
     },
     "ImageReference": {
-      "properties": {
-        "publisher": {
-          "type": "string",
-          "description": "The image publisher."
-        },
-        "offer": {
-          "type": "string",
-          "description": "The image offer."
-        },
-        "sku": {
-          "type": "string",
-          "description": "The image SKU."
-        },
-        "version": {
-          "type": "string",
-          "description": "The image version. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor and Build are decimal numbers. Specify 'latest' to use the latest version of the image."
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/SubResource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "publisher": {
+              "type": "string",
+              "description": "The image publisher."
+            },
+            "offer": {
+              "type": "string",
+              "description": "The image offer."
+            },
+            "sku": {
+              "type": "string",
+              "description": "The image SKU."
+            },
+            "version": {
+              "type": "string",
+              "description": "The image version. The allowed formats are Major.Minor.Build or 'latest'. Major, Minor and Build are decimal numbers. Specify 'latest' to use the latest version of the image."
+            }
+          }
         }
       ],
       "description": "The image reference."
@@ -3930,15 +3951,18 @@
       }
     },
     "ManagedDiskParameters": {
-      "properties": {
-        "storageAccountType": {
-          "$ref": "#/definitions/StorageAccountType",
-          "description": "The Storage Account type."
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/SubResource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "storageAccountType": {
+              "$ref": "#/definitions/StorageAccountType",
+              "description": "The Storage Account type."
+            }
+          }
         }
       ],
       "description": "The parameters of a managed disk."
@@ -4276,15 +4300,18 @@
       "description": "Describes a network interface reference properties."
     },
     "NetworkInterfaceReference": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/NetworkInterfaceReferenceProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/SubResource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/NetworkInterfaceReferenceProperties"
+            }
+          }
         }
       ],
       "description": "Describes a network interface reference."
@@ -4566,31 +4593,34 @@
       "description": "Describes the properties of a Virtual Machine."
     },
     "VirtualMachine": {
-      "properties": {
-        "plan": {
-          "$ref": "#/definitions/Plan",
-          "description": "The purchase plan when deploying virtual machine from VM Marketplace images."
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineProperties"
-        },
-        "resources": {
-          "readOnly": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/VirtualMachineExtension"
-          },
-          "description": "The virtual machine child extension resources."
-        },
-        "identity": {
-          "$ref": "#/definitions/VirtualMachineIdentity",
-          "description": "The identity of the virtual machine, if configured."
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "plan": {
+              "$ref": "#/definitions/Plan",
+              "description": "The purchase plan when deploying virtual machine from VM Marketplace images."
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineProperties"
+            },
+            "resources": {
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualMachineExtension"
+              },
+              "description": "The virtual machine child extension resources."
+            },
+            "identity": {
+              "$ref": "#/definitions/VirtualMachineIdentity",
+              "description": "The identity of the virtual machine, if configured."
+            }
+          }
         }
       ],
       "description": "Describes a Virtual Machine."
@@ -4819,15 +4849,18 @@
       "description": "Describes the properties of an Image."
     },
     "Image": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/ImageProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/ImageProperties"
+            }
+          }
         }
       ],
       "description": "Describes an Image."
@@ -5290,22 +5323,25 @@
       "description": "Describes a virtual machine scale set network profile's IP configuration properties."
     },
     "VirtualMachineScaleSetIPConfiguration": {
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "The IP configuration name."
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineScaleSetIPConfigurationProperties"
-        }
-      },
-      "required": [
-        "name"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/SubResource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The IP configuration name."
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineScaleSetIPConfigurationProperties"
+            }
+          },
+          "required": [
+            "name"
+          ]
         }
       ],
       "description": "Describes a virtual machine scale set network profile's IP configuration."
@@ -5338,22 +5374,25 @@
       "description": "Describes a virtual machine scale set network profile's IP configuration."
     },
     "VirtualMachineScaleSetNetworkConfiguration": {
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "The network configuration name."
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineScaleSetNetworkConfigurationProperties"
-        }
-      },
-      "required": [
-        "name"
-      ],
       "allOf": [
         {
           "$ref": "#/definitions/SubResource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The network configuration name."
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineScaleSetNetworkConfigurationProperties"
+            }
+          },
+          "required": [
+            "name"
+          ]
         }
       ],
       "description": "Describes a virtual machine scale set network profile's network configurations."
@@ -5459,19 +5498,22 @@
       "description": "Describes the properties of a Virtual Machine Scale Set Extension."
     },
     "VirtualMachineScaleSetExtension": {
-      "properties": {
-        "name": {
-          "type": "string",
-          "description": "The name of the extension."
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineScaleSetExtensionProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/SubResourceReadOnly"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the extension."
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineScaleSetExtensionProperties"
+            }
+          }
         }
       ],
       "description": "Describes a Virtual Machine Scale Set Extension."
@@ -5560,7 +5602,6 @@
           "description": "Specifies whether the Virtual Machine Scale Set should be overprovisioned."
         },
         "uniqueId": {
-          "readOnly": true,
           "type": "string",
           "description": "Specifies the ID which uniquely identifies a Virtual Machine Scale Set."
         },
@@ -5572,27 +5613,30 @@
       "description": "Describes the properties of a Virtual Machine Scale Set."
     },
     "VirtualMachineScaleSet": {
-      "properties": {
-        "sku": {
-          "$ref": "#/definitions/Sku",
-          "description": "The virtual machine scale set sku."
-        },
-        "plan": {
-          "$ref": "#/definitions/Plan",
-          "description": "The purchase plan when deploying a virtual machine scale set from VM Marketplace images."
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineScaleSetProperties"
-        },
-        "identity": {
-          "$ref": "#/definitions/VirtualMachineScaleSetIdentity",
-          "description": "The identity of the virtual machine scale set, if configured."
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sku": {
+              "$ref": "#/definitions/Sku",
+              "description": "The virtual machine scale set sku."
+            },
+            "plan": {
+              "$ref": "#/definitions/Plan",
+              "description": "The purchase plan when deploying a virtual machine scale set from VM Marketplace images."
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineScaleSetProperties"
+            },
+            "identity": {
+              "$ref": "#/definitions/VirtualMachineScaleSetIdentity",
+              "description": "The identity of the virtual machine scale set, if configured."
+            }
+          }
         }
       ],
       "description": "Describes a Virtual Machine Scale Set."
@@ -5863,37 +5907,40 @@
       "description": "Describes the properties of a virtual machine scale set virtual machine."
     },
     "VirtualMachineScaleSetVM": {
-      "properties": {
-        "instanceId": {
-          "readOnly": true,
-          "type": "string",
-          "description": "The virtual machine instance ID."
-        },
-        "sku": {
-          "$ref": "#/definitions/Sku",
-          "readOnly": true,
-          "description": "The virtual machine SKU."
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/VirtualMachineScaleSetVMProperties"
-        },
-        "plan": {
-          "$ref": "#/definitions/Plan",
-          "description": "The purchase plan when deploying virtual machine from VM Marketplace images."
-        },
-        "resources": {
-          "readOnly": true,
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/VirtualMachineExtension"
-          },
-          "description": "The virtual machine child extension resources."
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "instanceId": {
+              "readOnly": true,
+              "type": "string",
+              "description": "The virtual machine instance ID."
+            },
+            "sku": {
+              "$ref": "#/definitions/Sku",
+              "readOnly": true,
+              "description": "The virtual machine SKU."
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/VirtualMachineScaleSetVMProperties"
+            },
+            "plan": {
+              "$ref": "#/definitions/Plan",
+              "description": "The purchase plan when deploying virtual machine from VM Marketplace images."
+            },
+            "resources": {
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/VirtualMachineExtension"
+              },
+              "description": "The virtual machine child extension resources."
+            }
+          }
         }
       ],
       "description": "Describes a virtual machine scale set virtual machine."

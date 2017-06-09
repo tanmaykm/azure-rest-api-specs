@@ -281,26 +281,29 @@
       "allOf": [
         {
           "$ref": "#/definitions/RunCommandDocumentBase"
-        }
-      ],
-      "properties": {
-        "script": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "The script to be executed."
         },
-        "parameters": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RunCommandParameterDefinition"
+        {
+          "type": "object",
+          "properties": {
+            "script": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "The script to be executed."
+            },
+            "parameters": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RunCommandParameterDefinition"
+              },
+              "description": "The parameters used by the script."
+            }
           },
-          "description": "The parameters used by the script."
+          "required": [
+            "script"
+          ]
         }
-      },
-      "required": [
-        "script"
       ],
       "description": "Describes the properties of a Run Command."
     },
@@ -333,15 +336,18 @@
       "description": "Compute-specific operation properties, including output"
     },
     "RunCommandResult": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/RunCommandResultProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/OperationStatusResponse"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/RunCommandResultProperties"
+            }
+          }
         }
       ],
       "description": "Run command operation response."

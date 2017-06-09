@@ -678,37 +678,43 @@
       "x-ms-azure-resource": true
     },
     "Disk": {
-      "properties": {
-        "managedBy": {
-          "readOnly": true,
-          "type": "string",
-          "description": "A relative URI containing the ID of the VM that has the disk attached."
-        },
-        "sku": {
-          "$ref": "#/definitions/DiskSku"
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/DiskProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "managedBy": {
+              "readOnly": true,
+              "type": "string",
+              "description": "A relative URI containing the ID of the VM that has the disk attached."
+            },
+            "sku": {
+              "$ref": "#/definitions/DiskSku"
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/DiskProperties"
+            }
+          }
         }
       ],
       "description": "Disk resource."
     },
     "DiskUpdate": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/DiskUpdateProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/ResourceUpdate"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/DiskUpdateProperties"
+            }
+          }
         }
       ],
       "description": "Disk update resource."
@@ -997,32 +1003,38 @@
       "description": "This object gets 'bubbled up' through flattening."
     },
     "Snapshot": {
-      "properties": {
-        "sku": {
-          "$ref": "#/definitions/DiskSku"
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/DiskProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "sku": {
+              "$ref": "#/definitions/DiskSku"
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/DiskProperties"
+            }
+          }
         }
       ],
       "description": "Snapshot resource."
     },
     "SnapshotUpdate": {
-      "properties": {
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/DiskUpdateProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/ResourceUpdate"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/DiskUpdateProperties"
+            }
+          }
         }
       ],
       "description": "Snapshot update resource."
