@@ -1334,38 +1334,41 @@
       "x-ms-azure-resource": true
     },
     "Disk": {
-      "properties": {
-        "managedBy": {
-          "readOnly": true,
-          "type": "string",
-          "description": "A relative URI containing the ID of the VM that has the disk attached."
-        },
-        "managedByExtended": {
-          "readOnly": true,
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs."
-        },
-        "sku": {
-          "$ref": "#/definitions/DiskSku"
-        },
-        "zones": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "The Logical zone list for Disk."
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/DiskProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "managedBy": {
+              "readOnly": true,
+              "type": "string",
+              "description": "A relative URI containing the ID of the VM that has the disk attached."
+            },
+            "managedByExtended": {
+              "readOnly": true,
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs."
+            },
+            "sku": {
+              "$ref": "#/definitions/DiskSku"
+            },
+            "zones": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "The Logical zone list for Disk."
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/DiskProperties"
+            }
+          }
         }
       ],
       "description": "Disk resource."
@@ -2150,23 +2153,26 @@
       "description": "A disk access SAS uri."
     },
     "Snapshot": {
-      "properties": {
-        "managedBy": {
-          "readOnly": true,
-          "type": "string",
-          "description": "Unused. Always Null."
-        },
-        "sku": {
-          "$ref": "#/definitions/SnapshotSku"
-        },
-        "properties": {
-          "x-ms-client-flatten": true,
-          "$ref": "#/definitions/SnapshotProperties"
-        }
-      },
       "allOf": [
         {
           "$ref": "#/definitions/Resource"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "managedBy": {
+              "readOnly": true,
+              "type": "string",
+              "description": "Unused. Always Null."
+            },
+            "sku": {
+              "$ref": "#/definitions/SnapshotSku"
+            },
+            "properties": {
+              "x-ms-client-flatten": true,
+              "$ref": "#/definitions/SnapshotProperties"
+            }
+          }
         }
       ],
       "description": "Snapshot resource."

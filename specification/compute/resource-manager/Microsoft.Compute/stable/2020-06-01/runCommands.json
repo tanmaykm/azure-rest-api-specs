@@ -364,26 +364,29 @@
       "allOf": [
         {
           "$ref": "#/definitions/RunCommandDocumentBase"
-        }
-      ],
-      "properties": {
-        "script": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "The script to be executed."
         },
-        "parameters": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/RunCommandParameterDefinition"
+        {
+          "type": "object",
+          "properties": {
+            "script": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "The script to be executed."
+            },
+            "parameters": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/RunCommandParameterDefinition"
+              },
+              "description": "The parameters used by the script."
+            }
           },
-          "description": "The parameters used by the script."
+          "required": [
+            "script"
+          ]
         }
-      },
-      "required": [
-        "script"
       ],
       "description": "Describes the properties of a Run Command."
     },
